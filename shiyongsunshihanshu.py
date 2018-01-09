@@ -33,7 +33,7 @@ X = rdm.rand(dataset_size, 2)
 #加入不可预测的噪音，否则不同的损失函数的意义就不大了，因为不同损失函数都会在能
 #完全预测正确的时候最低。一般来说噪音为一个均值为0的小量，所以这里的噪音设置为
 #-0.05~0.05的随机数。
-Y = [[x1 + x2  + rdm.rand()/10.0-0.05] for (x1, x2) in X]
+Y = [[x1 + x2 + rdm.rand()/10.0-0.05] for (x1, x2) in X]#真实的y值
 
 #训练神经网络
 with tf.Session() as sess:
@@ -44,5 +44,5 @@ with tf.Session() as sess:
         start = (i * batch_size) % dataset_size
         end = min(start + batch_size, dataset_size)
         sess.run(train_step,
-                 feed_dict={x:X[start: end],y_:Y[start:end]})
+                 feed_dict={x:X[start: end], y_:Y[start:end]})
         print(sess.run(w1))
