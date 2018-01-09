@@ -50,6 +50,7 @@ with tf.name_scope('input-reshape'):
 with tf.name_scope('layer'):
     #创建一个简单的神经网络,改神经网络没有隐藏层
     with tf.name_scope('weights'):
+        # W = tf.Variable(tf.random_normal([784,10], stddev=2), name='W')
         W= tf.Variable(tf.zeros([784, 10]), name='W')
         variable_summaries(W)
     with tf.name_scope('biases'):

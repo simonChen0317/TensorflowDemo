@@ -20,7 +20,7 @@ W = tf.Variable(tf.zeros([784, 10]))
 b = tf.Variable(tf.zeros([10]))
 prediction = tf.nn.softmax(tf.matmul(x, W)+b)
 
-#二次代价函数
+#定义一个损失函数来来刻画当前的预测的值与真实值之间的差距。这里使用的是二次代价函数
 loss = tf.reduce_mean(tf.square(y-prediction))
 #使用梯度下降法
 train_step = tf.train.GradientDescentOptimizer(0.2).minimize(loss)
